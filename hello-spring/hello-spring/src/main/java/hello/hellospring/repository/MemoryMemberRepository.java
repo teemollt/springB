@@ -1,9 +1,11 @@
 package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository // 스프링이 repository임을 인식. 정형화된 패턴 컨트롤러-외부요청 받기 , 서비스-비즈니스 로직 처리 , 레포지토리-데이터 저장
 public class MemoryMemberRepository implements MemberRepository{
 
     private static Map<Long, Member> store = new HashMap<>();
