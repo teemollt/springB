@@ -4,12 +4,15 @@ import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 // springConfig에서 설정해주면 component 어노테이션 안써도됨.(서비스, 레포지토리는 안써도됨 컨트롤러는 써줘..)
 //@Service // 이걸 넣어줘야 autowired 통해서 자동 주입할 수 있는 클래스가 됨.
+
+@Transactional // 데이터를 저장하거나 변경하려면 써줘야 하는 어노테이션, jpa를 사용하려면 써줘야함.
 public class MemberService {
     // ctrl+shift+t => test class 생성
 //    private final MemberRepository memberRepository = new MemoryMemberRepository();
