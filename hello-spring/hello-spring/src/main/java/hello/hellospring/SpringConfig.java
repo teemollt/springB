@@ -1,6 +1,7 @@
 package hello.hellospring;
 
 import hello.hellospring.repository.JdbcMemberRepository;
+import hello.hellospring.repository.JdbcTemplateMemberRepository;
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
 import hello.hellospring.service.MemberService;
@@ -31,6 +32,7 @@ public class SpringConfig {
     @Bean // 위에 멤버서비스에 생성자 파라미터로 주입해주기 위해 생성 메모리멤버리포가 구현체니까 리턴
     public MemberRepository memberRepository() {
 //        return new MemoryMemberRepository();
-        return new JdbcMemberRepository(dataSource); //datasource 주입
+//        return new JdbcMemberRepository(dataSource); //Jdbc 사용 datasource 주입
+        return new JdbcTemplateMemberRepository(dataSource); //JdbcTemplate 사용
     }
 }
